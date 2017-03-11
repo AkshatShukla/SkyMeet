@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "846394729082",
+    "firebase_url": "https://skymeet-28d12.firebaseio.com",
+    "project_id": "skymeet-28d12",
+    "storage_bucket": "skymeet-28d12.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:846394729082:android:d796b4a1c77df7d1",
+        "android_client_info": {
+          "package_name": "com.rcoem.project.skymeet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "846394729082-na5aanaj23lkolm4sa60l25jc1pbd83u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rcoem.project.skymeet",
+            "certificate_hash": "8d17df36ecc7d007f73ad531e6cb2b7006e75233"
+          }
+        },
+        {
+          "client_id": "846394729082-778cjvke9ouod73t69oamgh9dq58mlsi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMTSrv4M9SkJc-SPcm0HZ1lw9FxreEzFo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "846394729082-778cjvke9ouod73t69oamgh9dq58mlsi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
