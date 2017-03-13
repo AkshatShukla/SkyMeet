@@ -24,32 +24,34 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.2.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
 
     //Firebase Auth
-    compile 'com.google.firebase:firebase-auth:10.2.0'
     //Firebase Auth Google Sign in
-    compile 'com.google.android.gms:play-services-auth:10.2.0'
+    
 
     //Firebase Analytics
-    compile 'com.google.firebase:firebase-core:10.2.0'
-
+    
     //Firebase Real-time Database
-    compile 'com.google.firebase:firebase-database:10.2.0'
-
+    
     //Firebase Storage
-    compile 'com.google.firebase:firebase-storage:10.2.0'
-
+    
     //Firebase Crash Analytics
-    compile 'com.google.firebase:firebase-crash:10.2.0'
-
+    
     //Firebase Messaging and Notification
-    compile 'com.google.firebase:firebase-messaging:10.2.0'
-
+    
     //GeoFire Dependency
+    
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+    compile 'com.google.firebase:firebase-auth:10.2.0'
+    compile 'com.google.android.gms:play-services-auth:10.2.0'
+    compile 'com.google.firebase:firebase-core:10.2.0'
+    compile 'com.google.firebase:firebase-database:10.2.0'
+    compile 'com.google.firebase:firebase-storage:10.2.0'
+    compile 'com.google.firebase:firebase-crash:10.2.0'
+    compile 'com.google.firebase:firebase-messaging:10.2.0'
     compile 'com.firebase:geofire-android:2.1.1'
-
+    compile 'com.android.support:design:25.2.0'
     testCompile 'junit:junit:4.12'
 }
 
