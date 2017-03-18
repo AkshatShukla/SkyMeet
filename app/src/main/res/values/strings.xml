@@ -1,4 +1,20 @@
 <resources>
     <string name="app_name">SkyMeet</string>
     <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_maps">Map View</string>
+
+    <string name="backpress">Press the back button once again to close the application.</string>
+    <string name="sign_out">Successfully Signed out</string>
+
+    <!-- Navigation Drawer menu labels -->
+    <string name="nav_home">Home</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_meetings">Meeting Rooms</string>
+    <string name="nav_logout">Logout</string>
+    <string name="nav_about_us">About Us</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="openDrawer">open_drawer</string>
+    <string name="closeDrawer">close_drawer</string>
 </resources>

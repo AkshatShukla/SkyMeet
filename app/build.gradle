@@ -27,20 +27,19 @@ dependencies {
 
     //Firebase Auth
     //Firebase Auth Google Sign in
-    
 
     //Firebase Analytics
-    
+
     //Firebase Real-time Database
-    
+
     //Firebase Storage
-    
+
     //Firebase Crash Analytics
-    
+
     //Firebase Messaging and Notification
-    
+
     //GeoFire Dependency
-    
+
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
     compile 'com.google.firebase:firebase-auth:10.2.0'
@@ -52,8 +51,20 @@ dependencies {
     compile 'com.google.firebase:firebase-messaging:10.2.0'
     compile 'com.firebase:geofire-android:2.1.1'
     compile 'com.android.support:design:25.2.0'
+    compile 'com.google.android.gms:play-services-maps:10.2.0'
+    compile 'com.google.android.gms:play-services-location:10.2.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.github.mancj:SlideUp-Android:2.2.1'
+    compile 'com.rengwuxian.materialedittext:library:2.1.4'
+    compile 'com.getbase:floatingactionbutton:1.10.1'
     testCompile 'junit:junit:4.12'
 }
 
 //Google Play Services
 apply plugin: 'com.google.gms.google-services'
+
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
