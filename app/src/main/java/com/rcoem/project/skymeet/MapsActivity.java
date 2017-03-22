@@ -108,6 +108,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 })
                 .withStartGravity(Gravity.TOP)
                 .withLoggingEnabled(true)
+                .withSavedState(savedInstanceState)
                 .withStartState(SlideUp.State.HIDDEN)
                 .build();
 
@@ -211,7 +212,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         latg = mGPS.getLatitude();
         lang = mGPS.getLongitude();
 
-        LatLng sydney = new LatLng(mGPS.getLatitude(), mGPS.getLongitude());
+            LatLng sydney = new LatLng(mGPS.getLatitude(), mGPS.getLongitude());
 
         try {
             geocoder = new Geocoder(MapsActivity.this, Locale.ENGLISH);
@@ -295,6 +296,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         new LatLng(point.latitude, point.longitude)).title("New Marker").icon(BitmapDescriptorFactory.fromResource(R.mipmap.marker));
 
                 String range = rangeValue.getText().toString();
+
+                mMap.addMarker(marker);
 
                 if (range.length() > 0) {
                     int finalRange = Integer.parseInt(range);

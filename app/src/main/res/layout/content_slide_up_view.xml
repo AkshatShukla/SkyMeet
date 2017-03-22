@@ -16,10 +16,10 @@
         android:id="@+id/slideView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="150dp"
         android:background="@drawable/rounded_up_corners_bg"
-        android:paddingLeft="80dp"
-        android:paddingRight="80dp">
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp">
 
 
         <com.rengwuxian.materialedittext.MaterialEditText
@@ -36,13 +36,13 @@
 
         <TextView
             android:id="@+id/messageType"
-            android:layout_width="160dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="26dp"
             android:layout_below="@+id/roomName"
             android:text="Location Selected:"
             android:textColor="#333333"
-            android:textSize="21sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -52,7 +52,7 @@
             android:layout_below="@+id/roomName"
             android:layout_toEndOf="@+id/messageType"
             android:layout_marginTop="26dp"
-            android:textSize="21sp"
+            android:textSize="16sp"
             android:textStyle="normal"/>
 
         <com.rengwuxian.materialedittext.MaterialEditText
@@ -87,7 +87,7 @@
 
         <TextView
             android:layout_alignParentTop="true"
-            android:text="Swipe up to dismiss"
+            android:text="Swipe down to dismiss"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView"
