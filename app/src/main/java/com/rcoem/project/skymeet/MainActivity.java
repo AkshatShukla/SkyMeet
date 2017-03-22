@@ -29,6 +29,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -57,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private Button add;
 
+    private FloatingActionsMenu fab;
+
     DrawerLayout di;
     long back_pressed;
 
@@ -79,15 +82,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        /*
         fabplus = (FloatingActionButton)findViewById(R.id.main_fab);
 
         fabplus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+                Intent intent = new Intent(MainActivity.this, TestActivity.class);
                 startActivity(intent);
             }
         });
+        */
 
         di = (DrawerLayout) findViewById(R.id.drawer_layout_account);
 
@@ -156,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new ListFragment(), "List View");
+        adapter.addFragment(new com.rcoem.project.skymeet.ListFragment(), "List View");
         adapter.addFragment(new EditProfileFragment(), "Profile View");
         viewPager.setAdapter(adapter);
     }

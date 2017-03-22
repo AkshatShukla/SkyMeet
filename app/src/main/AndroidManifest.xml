@@ -66,7 +66,14 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".AboutUs" />
-        <activity android:name=".MapsActivity"></activity>
+        <activity android:name=".MapsActivity" />
+        <activity android:name=".MapsActivity2" />
+        <activity android:name=".MessageRoomActivity" />
+
+        <service android:name=".GeoFenceManager" />
+
+        <activity android:name=".PasswordResetActivity" />
+        <activity android:name=".SignUp"></activity>
     </application>
 
 </manifest>

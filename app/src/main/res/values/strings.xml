@@ -3,8 +3,15 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_maps">Map View</string>
 
-    <string name="backpress">Press the back button once again to close the application.</string>
+    <string name="auth_failed">Sorry, Sign-in Failed. Please Try Again.</string>
+    <string name="empty_field">Sorry, Email/Password Fields are Empty.</string>
+    <string name="auth_success">Welcome! Let us get started.</string>
+    <string name="incorrect_email">Enter a valid Email Address.</string>
+    <string name="incorrect_pass_length">Enter a Password of 8 or more characters.</string>
+    <string name="reg_success">Registration Successful.</string>
+    <string name="reg_fail">Registration Failed.</string>
     <string name="sign_out">Successfully Signed out</string>
+    <string name="backpress">Press the back button once again to close the application.</string>
 
     <!-- Navigation Drawer menu labels -->
     <string name="nav_home">Home</string>
