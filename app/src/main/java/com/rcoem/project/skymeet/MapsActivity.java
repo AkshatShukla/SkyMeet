@@ -1,13 +1,18 @@
 package com.rcoem.project.skymeet;
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -30,13 +35,18 @@ import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.mancj.slideup.SlideUp;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+
+import static android.R.attr.process;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -57,6 +67,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private EditText roomName;
     private TextView currentLoc;
     private EditText rangeValue;
+    private Button addRoomBtn;
+
+    private Boolean process;
+
+    private DatabaseReference addRoom;
+
+    private LocationManager locationManager;
 
     /*
     public void onSearch() throws IOException {
@@ -91,6 +108,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         roomName = (EditText) findViewById(R.id.roomName);
         currentLoc = (TextView) findViewById(R.id.latLong);
         rangeValue = (EditText) findViewById(R.id.rangeText);
+        addRoomBtn = (Button) findViewById(R.id.addRoomBtn);
+
+        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        if( !locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("GPS not found");  // GPS not found
+            builder.setMessage("Want to enable?"); // Want to enable?
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                }
+            });
+            builder.setNegativeButton("No", null);
+            builder.create().show();
+            return;
+        }
 
         slideUp = new SlideUp.Builder(slideView)
                 .withListeners(new SlideUp.Listener() {
@@ -117,6 +150,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onClick(View view) {
                 slideUp.show();
                 fab.hide();
+            }
+        });
+
+        addRoomBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addRoom = FirebaseDatabase.getInstance().getReference().child("Room");
+
+                addRoom(latg,lang);
             }
         });
 
@@ -330,5 +372,42 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         });
     }
 
+    private void addRoom(final Double latg, final Double lang) {
 
+        process = true;
+
+        final String rName = roomName.getText().toString().trim();
+
+        final DatabaseReference addPush = addRoom.push();
+
+        if (!rName.isEmpty()) {
+
+            addRoom.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (process) {
+                        process = false;
+
+                        GeoFire geoFire = new GeoFire(addPush);
+                        geoFire.setLocation("", new GeoLocation(latg, lang));
+                        addPush.child("Name").setValue(rName);
+                        double re = latg + lang;
+                        double result = re * 10000;
+                        long re1 = (long) result;
+                        addPush.child("Location").setValue(re1);
+                        Toast.makeText(MapsActivity.this, "posted", Toast.LENGTH_LONG).show();
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+
+            });
+        }
+        else {
+            Toast.makeText(MapsActivity.this, "Please Enter a Room Name", Toast.LENGTH_SHORT).show();
+        }
+    }
 }

@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/roomName"
             android:layout_toEndOf="@+id/messageType"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="30dp"
             android:textSize="16sp"
             android:textStyle="normal"/>
 
@@ -66,7 +66,17 @@
             app:met_floatingLabel="highlight"
             app:met_floatingLabelText="Room Name"
             app:met_floatingLabelTextSize="14sp"
-            android:layout_below="@+id/latLong"/>
+            android:layout_below="@+id/messageType"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/addRoomBtn"
+            android:text="Add Room"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimaryDark"
+            android:layout_below="@id/rangeText"
+            android:layout_marginTop="26dp"/>
 
         <!--
         <ImageView
